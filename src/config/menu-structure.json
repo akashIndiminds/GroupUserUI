@@ -1,0 +1,524 @@
+{
+    "appConfig": {
+      "appName": "Online Dispute Resolution System",
+      "appVersion": "1.0.0",
+      "apiBaseUrl": "/api",
+      "defaultTheme": "light",
+      "documentFolderStructure": {
+        "rootFolder": "Documents",
+        "subFolders": ["Year", "DocType"]
+      }
+    },
+    "menuStructure": {
+      "masterData": {
+        "id": "master",
+        "label": "Master Data",
+        "icon": "Building",
+        "order": 1,
+        "subMenus": [
+          {
+            "id": "master_entity",
+            "label": "Entities",
+            "route": "/master/entities",
+            "table": "Master_Entity",
+            "primaryKey": "Entity_internalID",
+            "icon": "Users",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "arbitrator", "lawfirm", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_usergroup",
+            "label": "User Groups",
+            "route": "/master/usergroups",
+            "table": "Master_UserGroup",
+            "primaryKey": "UserGroup_ID",
+            "icon": "UserPlus",
+            "permissions": {
+              "create": ["admin"],
+              "read": ["admin"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_department",
+            "label": "Departments",
+            "route": "/master/departments",
+            "table": "Master_Department",
+            "primaryKey": "Department_ID",
+            "icon": "Building",
+            "permissions": {
+              "create": ["admin"],
+              "read": ["admin", "manager"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_doctype",
+            "label": "Document Types",
+            "route": "/master/doctypes",
+            "table": "Master_DocType",
+            "primaryKey": "DocType_ID",
+            "icon": "FileText",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_entitytype",
+            "label": "Entity Types",
+            "route": "/master/entitytypes",
+            "table": "Master_EntityType",
+            "primaryKey": "EntityType_ID",
+            "icon": "TagsIcon",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_contactperson",
+            "label": "Contact Persons",
+            "route": "/master/contactpersons",
+            "table": "Master_ContactPerson",
+            "primaryKey": "ContactPerson_ID",
+            "icon": "UserCircle",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_user",
+            "label": "Users",
+            "route": "/master/users",
+            "table": "Master_User",
+            "primaryKey": "User_ID",
+            "icon": "Users",
+            "permissions": {
+              "create": ["admin"],
+              "read": ["admin", "manager"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_products",
+            "label": "Products",
+            "route": "/master/products",
+            "table": "Master_Products",
+            "primaryKey": "Products_ID",
+            "icon": "Package",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_template",
+            "label": "Templates",
+            "route": "/master/templates",
+            "table": "Master_Template",
+            "primaryKey": "Template_ID",
+            "icon": "FileText",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_tasktype",
+            "label": "Task Types",
+            "route": "/master/tasktypes",
+            "table": "Master_TaskType",
+            "primaryKey": "TaskType_ID",
+            "icon": "CheckSquare",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_casetype",
+            "label": "Case Types",
+            "route": "/master/casetypes",
+            "table": "Master_CaseType",
+            "primaryKey": "CaseType_ID",
+            "icon": "Briefcase",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "master_taskstatus",
+            "label": "Task Statuses",
+            "route": "/master/taskstatuses",
+            "table": "Master_TaskStatus",
+            "primaryKey": "TaskStatus_ID",
+            "icon": "ListChecks",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          }
+        ]
+      },
+      "transactions": {
+        "id": "trans",
+        "label": "Transactions",
+        "icon": "Briefcase",
+        "order": 2,
+        "subMenus": [
+          {
+            "id": "trans_menu",
+            "label": "Menus",
+            "route": "/transactions/menus",
+            "table": "Trans_Menu",
+            "primaryKey": "Menu_ID",
+            "icon": "Menu",
+            "permissions": {
+              "create": ["admin"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_case",
+            "label": "Cases",
+            "route": "/transactions/cases",
+            "table": "Trans_Case",
+            "primaryKey": "Case_ID",
+            "icon": "Briefcase",
+            "permissions": {
+              "create": ["admin", "manager", "arbitrator"],
+              "read": ["admin", "manager", "arbitrator", "lawfirm", "user"],
+              "update": ["admin", "manager", "arbitrator"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_casedetail",
+            "label": "Case Details",
+            "route": "/transactions/casedetails",
+            "table": "Trans_CaseDetail",
+            "primaryKey": "CaseDetail_ID",
+            "icon": "ClipboardList",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_casearb",
+            "label": "Case Arbitrators",
+            "route": "/transactions/casearbitrators",
+            "table": "Trans_CaseArb",
+            "primaryKey": "CaseArb_ID",
+            "icon": "UserCheck",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "arbitrator"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_caseuser",
+            "label": "Case Users",
+            "route": "/transactions/caseusers",
+            "table": "Trans_CaseUser",
+            "primaryKey": "CaseUser_ID",
+            "icon": "UserPlus",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_task",
+            "label": "Tasks",
+            "route": "/transactions/tasks",
+            "table": "Trans_Task",
+            "primaryKey": "Task_ID",
+            "icon": "CheckSquare",
+            "permissions": {
+              "create": ["admin", "manager", "user"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_docs",
+            "label": "Documents",
+            "route": "/transactions/documents",
+            "table": "Trans_Docs",
+            "primaryKey": "Docs_ID",
+            "icon": "File",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin", "manager"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_userlog",
+            "label": "User Logs",
+            "route": "/transactions/userlogs",
+            "table": "Trans_UserLog",
+            "primaryKey": "UserLog_ID",
+            "icon": "Activity",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager"],
+              "update": [],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "trans_newreg",
+            "label": "New Registrations",
+            "route": "/transactions/newregistrations",
+            "table": "Trans_NewReg",
+            "primaryKey": "NewReg_ID",
+            "icon": "UserPlus",
+            "permissions": {
+              "create": ["admin", "manager"],
+              "read": ["admin", "manager"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          }
+        ]
+      },
+      "documents": {
+        "id": "docs",
+        "label": "Documents",
+        "icon": "FileText",
+        "order": 3,
+        "subMenus": [
+          {
+            "id": "docs_upload",
+            "label": "Upload Documents",
+            "route": "/documents/upload",
+            "icon": "Upload",
+            "permissions": {
+              "create": ["admin", "manager", "user"],
+              "read": ["admin", "manager", "user"],
+              "update": ["admin"],
+              "delete": ["admin"]
+            }
+          },
+          {
+            "id": "docs_search",
+            "label": "Search Documents",
+            "route": "/documents/search",
+            "icon": "Search",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager", "user"],
+              "update": [],
+              "delete": []
+            }
+          },
+          {
+            "id": "log_docs",
+            "label": "Document Logs",
+            "route": "/documents/logs",
+            "table": "Log_Docs",
+            "primaryKey": "Log_ID",
+            "icon": "FileSearch",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager"],
+              "update": [],
+              "delete": []
+            }
+          }
+        ]
+      },
+      "reports": {
+        "id": "reports",
+        "label": "Reports",
+        "icon": "BarChart2",
+        "order": 4,
+        "subMenus": [
+          {
+            "id": "report_cases",
+            "label": "Case Reports",
+            "route": "/reports/cases",
+            "icon": "FileText",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager", "user"],
+              "update": [],
+              "delete": []
+            }
+          },
+          {
+            "id": "report_tasks",
+            "label": "Task Reports",
+            "route": "/reports/tasks",
+            "icon": "CheckSquare",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager", "user"],
+              "update": [],
+              "delete": []
+            }
+          },
+          {
+            "id": "report_users",
+            "label": "User Activity",
+            "route": "/reports/users",
+            "icon": "Users",
+            "permissions": {
+              "create": [],
+              "read": ["admin", "manager"],
+              "update": [],
+              "delete": []
+            }
+          }
+        ]
+      }
+    },
+    "userGroups": [
+      {
+        "id": 1,
+        "name": "Administrators",
+        "description": "Full system access",
+        "entityType": "ALL",
+        "accessType": 9,
+        "permissions": "ALL"
+      },
+      {
+        "id": 2,
+        "name": "Arbitrators",
+        "description": "Arbitration case management",
+        "entityType": "AR",
+        "accessType": 3,
+        "permissions": {
+          "master_entity": 1,
+          "master_doctype": 1,
+          "master_contactperson": 1,
+          "master_tasktype": 1,
+          "master_casetype": 1,
+          "trans_case": 3,
+          "trans_casedetail": 3,
+          "trans_task": 3,
+          "trans_docs": 3,
+          "docs_upload": 3,
+          "docs_search": 3
+        }
+      },
+      {
+        "id": 3,
+        "name": "Law Firms",
+        "description": "Legal representation",
+        "entityType": "LW",
+        "accessType": 2,
+        "permissions": {
+          "master_entity": 1,
+          "master_doctype": 1,
+          "master_contactperson": 1,
+          "trans_case": 1,
+          "trans_casedetail": 1,
+          "trans_task": 1,
+          "trans_docs": 2,
+          "docs_search": 2
+        }
+      },
+      {
+        "id": 4,
+        "name": "Financial Institutions",
+        "description": "Banks and financial entities",
+        "entityType": "FI",
+        "accessType": 3,
+        "permissions": {
+          "master_entity": 3,
+          "master_doctype": 1,
+          "master_contactperson": 3,
+          "master_products": 3,
+          "trans_case": 3,
+          "trans_casedetail": 3,
+          "trans_task": 1,
+          "trans_docs": 3,
+          "docs_upload": 3,
+          "docs_search": 3
+        }
+      },
+      {
+        "id": 5,
+        "name": "Claimants",
+        "description": "Parties filing claims",
+        "entityType": "FC",
+        "accessType": 1,
+        "permissions": {
+          "trans_case": 1,
+          "trans_casedetail": 1,
+          "trans_docs": 1,
+          "docs_search": 1
+        }
+      }
+    ],
+    "access_types": {
+      "1": "View Only",
+      "2": "View (No Download)",
+      "3": "Read/Write",
+      "9": "Full Access"
+    },
+    "entity_types": {
+      "EM": "Employee",
+      "LW": "Law Firm",
+      "AD": "Advocate",
+      "AR": "Arbitrator",
+      "FI": "Financial Institution",
+      "FC": "FI Customer",
+      "BA": "Business Associate",
+      "VR": "Vendors/Service Providers",
+      "OC": "Other Contact"
+    },
+    "task_types": [
+      "Loan Recovery Notice (LRN)",
+      "Conferment (CONF)",
+      "Commencement (CMNC)",
+      "Reference (REF)",
+      "Proposal (PROP)",
+      "Appointment (APPT)",
+      "Acceptance (ACPT)",
+      "SOC (SOC)",
+      "Hearing (HRNG)",
+      "Interim (INTR)",
+      "Award (AWRD)"
+    ]
+  }
+  
